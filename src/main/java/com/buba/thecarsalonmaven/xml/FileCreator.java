@@ -36,7 +36,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 
 /**
- *
+ * A kimeneti és bemeneti xml fájlok létrehozására hivatott osztály.
  * @author Szanics Levente
  */
 public class FileCreator {
