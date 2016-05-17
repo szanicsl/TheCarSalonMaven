@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="800.0" styleClass="field" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.buba.thecarsalonmaven.controllers.LoginSceneController">
+    <children>
+        <Button fx:id="buttonreg" layoutX="518.0" layoutY="175.0" onAction="#handleRegButtonAction" text="Register" />
+        <Label fx:id="labellogin" layoutX="107.0" layoutY="145.0" minHeight="16" minWidth="69" />
+      <Label layoutX="48.0" layoutY="14.0" prefHeight="25.0" prefWidth="231.0" text="LOGIN" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="24.0" prefHeight="25.0" prefWidth="231.0" text="REGISTRATION" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="50.0" layoutY="78.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Username:" />
+            <Label text="Password:" GridPane.rowIndex="1" />
+            <TextField id="user" fx:id="user" promptText="username" text="default" GridPane.columnIndex="1" />
+            <PasswordField id="password" fx:id="password" promptText="password" text="default" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="450.0" layoutY="78.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Username:" />
+            <Label text="Password:" GridPane.rowIndex="1" />
+            <TextField id="user" fx:id="userreg" promptText="username" GridPane.columnIndex="1" />
+            <PasswordField id="password" fx:id="passwordreg" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Label fx:id="labelreg" layoutX="514.0" layoutY="145.0" minHeight="16" minWidth="69" />
+      <Button fx:id="buttonlogin" layoutX="118.0" layoutY="175.0" onAction="#handleLoginButtonAction" text="Login" />
+    </children>
+</AnchorPane>

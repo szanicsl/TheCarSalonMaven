@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<parts>
+    <part>
+        <pname>A</pname>
+        <plevel>3</plevel>
+        <pcost>10000</pcost>
+    </part>
+    <part>
+        <pname>B</pname>
+        <plevel>2</plevel>
+        <pcost>10000</pcost>
+    </part>
+    <part>
+        <pname>C</pname>
+        <plevel>1</plevel>
+        <pcost>10000</pcost>
+    </part>
+    <part>
+        <pname>D</pname>
+        <plevel>3</plevel>
+        <pcost>10000</pcost>
+    </part>
+</parts>

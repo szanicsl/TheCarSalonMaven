@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="385.0" prefWidth="411.0" styleClass="field" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.buba.thecarsalonmaven.controllers.OrdersSceneController">
+   <children>
+      <ListView fx:id="orderListView" layoutX="26.0" layoutY="14.0" AnchorPane.bottomAnchor="280.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+      <Button fx:id="removeButton" layoutX="50.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleRemoveButton" text="Törlés" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0" />
+      <Button fx:id="cancelButton" layoutX="279.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Vissza" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" />
+      <GridPane layoutX="25.0" layoutY="120.0" prefHeight="173.0" prefWidth="351.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="111.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="26.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ListView fx:id="extrasList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Extrák:" GridPane.rowIndex="4" />
+            <Label text="Szín:" GridPane.rowIndex="3" />
+            <Label text="Motor méret:" GridPane.rowIndex="2" />
+            <Label text="Motor típus:" GridPane.rowIndex="1" />
+            <Label text="Típus:" />
+            <Label fx:id="typeLabel" GridPane.columnIndex="1" />
+            <Label fx:id="motorTypeLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="motorSizeLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="colorLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Label fx:id="messageLabel" layoutX="86.0" layoutY="301.0" prefHeight="17.0" prefWidth="240.0" textAlignment="CENTER" />
+   </children>
+</AnchorPane>
