@@ -31,7 +31,7 @@ public class MotorType {
     /**
      * Paraméteres konstruktora a {@link MotorType} osztálynak.
      * @param mName A motor típus neve.
-     * @param motorSizes A motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektum.
+     * @param motorSizes A motor méretét, lehetséges méreteit és árát visszaadó {@link MotorSizes} típusú objektum.
      */
     public MotorType(String mName, MotorSizes motorSizes) {
         this.mName = mName;
@@ -56,15 +56,15 @@ public class MotorType {
 
     /**
      *
-     * @return A motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektum.
+     * @return A motor méretét, lehetséges méreteit és árát visszaadó {@link MotorSizes} típusú objektum.
      */
     public MotorSizes getMotorSizes() {
         return motorSizes;
     }
 
     /**
-     * Beállítja a motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektumot.
-     * @param motorSizes A motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektum.
+     * Beállítja a motor méretét, lehetséges méreteit és árát visszaadó {@link MotorSizes} típusú objektumot.
+     * @param motorSizes A motor méretét, lehetséges méreteit és árát visszaadó {@link MotorSizes} típusú objektum.
      */
     public void setMotorSizes(MotorSizes motorSizes) {
         this.motorSizes = motorSizes;

@@ -147,7 +147,7 @@ public class ConfCar{
         return name;
     }
     /**
-     * A {@link CarConfiguratorController} label-jéhez állít elő {@link String}-et.
+     * A {@link com.buba.thecarsalonmaven.controllers.CarConfiguratorController} label-jéhez állít elő {@link String}-et.
      * @return Visszatér egy az objektumot leíró {@link String}-el.
      */
     public String toLabelString(){

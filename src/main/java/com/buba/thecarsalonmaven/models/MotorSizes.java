@@ -20,15 +20,15 @@ public class MotorSizes {
 
     /**
      *
-     * @return A motor méretét vagy lehetséges méreteit ({@link MotorSize) tartalmazó lista.
+     * @return A motor méretét vagy lehetséges méreteit ({@link MotorSize}) tartalmazó lista.
      */
     public List<MotorSize> getMotorSizes() {
         return motorSizes;
     }
 
     /**
-     * Beállítja a motor méretét vagy lehetséges méreteit ({@link MotorSize) tartalmazó listát.
-     * @param motorSizes A motor méretét vagy lehetséges méreteit ({@link MotorSize) tartalmazó lista.
+     * Beállítja a motor méretét vagy lehetséges méreteit ({@link MotorSize}) tartalmazó listát.
+     * @param motorSizes A motor méretét vagy lehetséges méreteit ({@link MotorSize}) tartalmazó lista.
      */
     public void setMotorSizes(List<MotorSize> motorSizes) {
         this.motorSizes = motorSizes;

@@ -62,7 +62,7 @@ public class Color {
 
     /**
      * Beállítja a {@link Color} objektumunk által tárolt szín árát.
-     * @param cost
+     * @param cost A szín ára.
      */
     public void setCost(int cost) {
         this.cost = cost;

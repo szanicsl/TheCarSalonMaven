@@ -101,7 +101,7 @@ public class Order {
 
     /**
      * A rendelő {@link User} felhasználónevét adja vissza.
-     * @return Visszatér egy {@link String} típusú objektummal, amegy a rendelő felhasználóneve.
+     * @return A rendelő felhasználóneve.
      */
     public String getUser() {
         return user;
@@ -109,7 +109,7 @@ public class Order {
 
     /**
      * Beállítja a rendelő felhasználónevét.
-     * @param user egy {@link String} típusú objektum, amely a rendelő felhasználóneve.
+     * @param user A rendelő felhasználóneve.
      */
     public void setUser(String user) {
         this.user = user;
@@ -117,7 +117,7 @@ public class Order {
 
     /**
      * A rendelés dátumát adja vissza.
-     * @return Visszatér egy {@link LocalDate} típusú objektummal, amely a rendelés dátuma.
+     * @return Visszatér a rendelés dátumával.
      */
     public LocalDate getOrderDate() {
         return date;
@@ -125,7 +125,7 @@ public class Order {
 
     /**
      * Beállítja a rendelés dátumát.
-     * @param date egy {@link Localdate} típusú objektum, amely a rendelés dátuma.
+     * @param date A rendelés dátuma.
      */
     public void setOrderDate(LocalDate date) {
         this.date = date;

@@ -28,7 +28,7 @@ public class ConfCars {
     }
     
     /**
-     * Beállítja az autók listáját és az {@link ObservableList<ConfCar>} típusú listát.
+     * Beállítja az autók {@link ObservableList} típusú listáját.
      * @param confCars A lista, melyre beállítjuk a confCars és az oConfCars listákat.
      */
     public void setConfCars(List<ConfCar> confCars){
@@ -45,7 +45,7 @@ public class ConfCars {
 
     /**
      *
-     * @return Visszaadja a {@link ObservableList<ConfCar>} típusú autók listáját.
+     * @return Visszaadja az autók {@link ObservableList} típusú listáját.
      */
     public ObservableList<ConfCar> getOConfCars() {
         return oConfCars;
