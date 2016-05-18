@@ -7,16 +7,22 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlValue;
 
 /**
- *
- * @author szani
+ * A motor méretet modellező osztály, mely tartalmazza a motor méretét és annak a motornak az árát.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "motorsize")
 @XmlAccessorType (XmlAccessType.FIELD)
 public class MotorSize {
     @XmlValue
-    String size;
+    /**
+     * A motor mérete
+     */
+    private String size;
     @XmlAttribute
-    int cost;
+    /**
+     * A motor ára
+     */
+    private int cost;
 
     /**
      * Üres konstruktora a {@link MotorSize} osztálynak.
