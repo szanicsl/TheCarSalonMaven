@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author szani
+ * {@link ConfCar} objektumok listáját tartalmazó osztály.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "confcars")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -21,15 +21,15 @@ public class ConfCars {
     
     /**
      *
-     * @return
+     * @return Visszaadja az autók listáját.
      */
     public List<ConfCar> getConfCars(){
         return confCars;
     }
     
     /**
-     *
-     * @param confCars
+     * Beállítja az autók listáját és az {@link ObservableList<ConfCar>} típusú listát.
+     * @param confCars A lista, melyre beállítjuk a confCars és az oConfCars listákat.
      */
     public void setConfCars(List<ConfCar> confCars){
         this.confCars = confCars;
@@ -39,13 +39,13 @@ public class ConfCars {
     }
     
     /**
-     *
+     * Autók listája, mely a JavaFX néhány osztályához szükséges.
      */
     public ObservableList<ConfCar> oConfCars = FXCollections.observableArrayList();
 
     /**
      *
-     * @return
+     * @return Visszaadja a {@link ObservableList<ConfCar>} típusú autók listáját.
      */
     public ObservableList<ConfCar> getOConfCars() {
         return oConfCars;
