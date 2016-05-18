@@ -1,25 +1,43 @@
 package com.buba.thecarsalonmaven.models;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author szani
+ * Az autókat modellező osztály.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "confcar")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ConfCar{
-    String name;
+
+    /**
+     * Az autó neve/típusa.
+     */
+    public String name;
+
+    /**
+     * Az autó ára.
+     */
     @XmlAttribute
-    int cost;
-    Colors colors;
-    MotorTypes motorTypes;
-    int level;
+    public int cost;
+
+    /**
+     * Az autó színe, vagy lehetséges színei.
+     */
+    public Colors colors;
+
+    /**
+     * Az autó motortípusa, vagy lehetséges motortípusai.
+     */
+    public MotorTypes motorTypes;
+
+    /**
+     * Az autó szintje.
+     */
+    public int level;
 
     /**
      * Üres konstruktora a {@link ConfCar} osztálynak.
@@ -35,7 +53,7 @@ public class ConfCar{
      * @param cost A kocsi alap ára.
      * @param colors A kocsi lehetséges színei.
      * @param motorTypes A kocsi motorjának lehetséges típusai.
-     * @param level
+     * @param level A kocsi szintje.
      */
     public ConfCar(String name, int cost, Colors colors, MotorTypes motorTypes, int level) {
         this.name = name;
@@ -47,15 +65,15 @@ public class ConfCar{
 
     /**
      *
-     * @return
+     * @return Visszatér a kocsi nevével.
      */
     public String getName() {
         return name;
     }
 
     /**
-     *
-     * @param name
+     * Beállítja a kocsi nevét
+     * @param name A beállítandó név.
      */
     public void setName(String name) {
         this.name = name;
@@ -63,47 +81,47 @@ public class ConfCar{
 
     /**
      *
-     * @return
+     * @return Visszaadja a kocsi árát.
      */
     public int getCost() {
         return cost;
     }
 
     /**
-     *
-     * @param cost
+     * Beállítja a kocsi árát.
+     * @param cost A beállítandó ár.
      */
     public void setCost(int cost) {
         this.cost = cost;
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return Visszaadja a kocsi színeinek listáját modellező {@link Colors} osztályt.
      */
     public Colors getColors() {
         return colors;
     }
 
     /**
-     *
-     * @param colors
+     * Beállítja a kocsi lehetséges színeit/színét.
+     * @param colors A beállítandó színek/szín.
      */
     public void setColors(Colors colors) {
         this.colors = colors;
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return Visszaadja a kocsi motor típusainak listáját modellezp {@link MotorTypes} osztályt.
      */
     public MotorTypes getMotorTypes() {
         return motorTypes;
     }
 
     /**
-     *
-     * @param motorTypes
+     * Beállítja a lehetséges motor típusokat/típust.
+     * @param motorTypes A beállítandó motor típus/típusok.
      */
     public void setMotorTypes(MotorTypes motorTypes) {
         this.motorTypes = motorTypes;
@@ -111,15 +129,15 @@ public class ConfCar{
 
     /**
      *
-     * @return
+     * @return Visszaadja az autó szintjét.
      */
     public int getLevel() {
         return level;
     }
 
     /**
-     *
-     * @param level
+     * Beállítja az autó szintjét.
+     * @param level A beállítandó autó szint.
      */
     public void setLevel(int level) {
         this.level = level;
