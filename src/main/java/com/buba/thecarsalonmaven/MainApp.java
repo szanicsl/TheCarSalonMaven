@@ -155,6 +155,7 @@ public class MainApp extends Application {
             stage.showAndWait();
             logger.info("Rendelések ablak létrejött");
         } catch (IOException e) {
+            e.printStackTrace();
             logger.error(e.getClass().getName()+": Az OrderScene.fxml fájl beolvasása sikertelen");
         }
     }

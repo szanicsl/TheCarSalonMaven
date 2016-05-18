@@ -53,6 +53,7 @@ public class ConfCarHandler extends DefaultHandler{
         if (qName.equalsIgnoreCase("confcar")) {
             confCar = new ConfCar();
             confCar.setCost(Integer.parseInt(attributes.getValue("cost")));
+            confCar.setId(Integer.parseInt(attributes.getValue("id")));
         }else if(qName.equalsIgnoreCase("name")){
             nameBool = true;
         }else if(qName.equalsIgnoreCase("colors")){

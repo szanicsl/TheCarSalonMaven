@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <confcars>
-    <confcar cost="1800000">
+    <confcar id="1" cost="1800000">
         <name>A</name>
         <colors>
             <color cost="40000">Piros</color>
@@ -25,7 +25,7 @@
         </motortypes>
         <level>2</level>
     </confcar>
-    <confcar cost="2400000">
+    <confcar id="2" cost="2400000">
         <name>B</name>
         <colors>
             <color cost="40000">Zöld</color>

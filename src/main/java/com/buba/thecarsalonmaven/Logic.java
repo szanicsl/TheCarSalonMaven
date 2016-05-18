@@ -84,7 +84,13 @@ public class Logic {
      */
     public List<Order> removeOrder(List<Order> orderList, Order order){
         try {
-            orderList.remove(order);
+            for(int i=0; i< orderList.size();i++)
+            {
+                if(orderList.get(i).equals(order)){
+                    orderList.remove(i);
+                    break;
+                }
+            }
             WriteXMLFile w = new WriteXMLFile();
             w.init(1);
             orders.setOrderList(orderList);

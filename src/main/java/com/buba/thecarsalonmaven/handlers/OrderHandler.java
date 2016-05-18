@@ -82,6 +82,7 @@ public class OrderHandler extends DefaultHandler{
             confCar = new ConfCar();
             String a = attributes.getValue("cost");
             confCar.setCost(Integer.parseInt(a));
+            confCar.setId(Integer.parseInt(attributes.getValue("id")));
         }else if(qName.equalsIgnoreCase("name")){
             nameBool = true;
         }else if(qName.equalsIgnoreCase("colors")){
