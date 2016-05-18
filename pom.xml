@@ -80,6 +80,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>2.17</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -118,7 +121,6 @@
                             <excludeScope>system</excludeScope>
                             <excludeGroupIds>junit,org.mockito,org.hamcrest</excludeGroupIds>
                             <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                            
                         </configuration>
                     </execution>
                 </executions>
@@ -198,29 +200,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.7</version>
-                <!--<executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/</outputDirectory>
-                            <resources>          
-                                <resource>
-                                    <directory>src/main/resources/xml</directory>
-                                    <filtering>true</filtering>
-                                    <includes>
-                                        <include>users.xml</include>
-                                        <include>orders.xml</include>
-                                    </includes>
-                                </resource>
-                            </resources>      
-                            <encoding>UTF-8</encoding>        
-                        </configuration>            
-                    </execution>
-                </executions>!-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
