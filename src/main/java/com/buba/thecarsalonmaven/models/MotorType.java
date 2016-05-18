@@ -7,14 +7,14 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 
 /**
- *
- * @author szani
+ * A motor típusát modellező osztály.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "motortype")
 @XmlAccessorType (XmlAccessType.FIELD)
 public class MotorType {
-    String mName;
-    MotorSizes motorSizes;
+    private String mName;
+    private MotorSizes motorSizes;
 
     /**
      * Üres konstruktora a {@link MotorType} osztálynak.
@@ -29,9 +29,9 @@ public class MotorType {
     }
 
     /**
-     *
-     * @param mName
-     * @param motorSizes
+     * Paraméteres konstruktora a {@link MotorType} osztálynak.
+     * @param mName A motor típus neve.
+     * @param motorSizes A motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektum.
      */
     public MotorType(String mName, MotorSizes motorSizes) {
         this.mName = mName;
@@ -40,15 +40,15 @@ public class MotorType {
 
     /**
      *
-     * @return
+     * @return A motor típus neve.
      */
     public String getMname() {
         return mName;
     }
 
     /**
-     *
-     * @param mName
+     * Beállítja a motor típus nevét.
+     * @param mName A motor típus neve.
      */
     public void setMname(String mName) {
         this.mName = mName;
@@ -56,15 +56,15 @@ public class MotorType {
 
     /**
      *
-     * @return
+     * @return A motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektum.
      */
     public MotorSizes getMotorSizes() {
         return motorSizes;
     }
 
     /**
-     *
-     * @param motorSizes
+     * Beállítja a motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektumot.
+     * @param motorSizes A motor méretét, lehetséges méreteit és árát visszaadó {@MotorSizes} típusú objektum.
      */
     public void setMotorSizes(MotorSizes motorSizes) {
         this.motorSizes = motorSizes;

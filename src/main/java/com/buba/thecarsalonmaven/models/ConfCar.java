@@ -13,36 +13,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ConfCar{
 
-    /**
-     * Az autó neve/típusa.
-     */
-    public String name;
-    /**
-     * Az autó id-je.
-     */
+    private String name;
     @XmlAttribute
-    public int id;
-
-    /**
-     * Az autó ára.
-     */
+    private int id;
     @XmlAttribute
-    public int cost;
-
-    /**
-     * Az autó színe, vagy lehetséges színei.
-     */
-    public Colors colors;
-
-    /**
-     * Az autó motortípusa, vagy lehetséges motortípusai.
-     */
-    public MotorTypes motorTypes;
-
-    /**
-     * Az autó szintje.
-     */
-    public int level;
+    private int cost;
+    private Colors colors;
+    private MotorTypes motorTypes;
+    private int level;
 
     /**
      * Üres konstruktora a {@link ConfCar} osztálynak.
@@ -173,7 +151,7 @@ public class ConfCar{
      * @return Visszatér egy az objektumot leíró {@link String}-el.
      */
     public String toLabelString(){
-        return name;
+        return "Név: "+name+"\nMotor típusok: "+motorTypes+"\nSzínek: "+colors;
     }
     
 }

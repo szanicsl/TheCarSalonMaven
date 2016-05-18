@@ -44,9 +44,9 @@ public class Colors {
     public String toString() {
         String string = "";
         for(Color c : colors){
-            string = string +" "+ c.toString();
+            string = string +", "+ c.toString();
         }
-        return "Colors{" + "colors=" + string + '}';
+        return string;
     }
     
     

@@ -40,12 +40,18 @@ import org.w3c.dom.Document;
  */
 public class FileCreator {
 
+    /**
+     * Üres konstrukrora a {@link FileCreator} osztálynak.
+     */
     public FileCreator() {
         init();
     }
 
     private Users users = new Users();
 
+    /**
+     * Létrahozza az adatbázis számára szükséges mappát a home mappán belül, majd létrehozza benne a szükséges xml állományokat, amennyiben nem léteznének.
+     */
     public void init() {
         String path = System.getProperty("user.home")+"/.projectdatabase/";
         File dir = new File(path);

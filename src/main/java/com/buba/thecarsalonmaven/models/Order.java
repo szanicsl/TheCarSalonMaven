@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
- *Az {@link Order} a rendeléseket leképező model osztály.
+ * Egy rendelést modellező osztály.
  * 
  * @author Szanics Levente
  */
@@ -23,7 +23,7 @@ public class Order {
     private LocalDate date;
 
     /**
-     *Az {@link Order} osztály üres kostruktora.
+     * Az {@link Order} osztály üres kostruktora.
      */
     public Order() {
         super();

@@ -14,14 +14,8 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlAccessorType (XmlAccessType.FIELD)
 public class MotorSize {
     @XmlValue
-    /**
-     * A motor mérete
-     */
     private String size;
     @XmlAttribute
-    /**
-     * A motor ára
-     */
     private int cost;
 
     /**
@@ -34,9 +28,9 @@ public class MotorSize {
     }
 
     /**
-     *
-     * @param size
-     * @param cost
+     * Konstruktor a {@link MotorSize} osztálynak az összes tagjával.
+     * @param size A motor mérete.
+     * @param cost A motor ára.
      */
     public MotorSize(String size, int cost) {
         this.size = size;
@@ -45,15 +39,15 @@ public class MotorSize {
 
     /**
      *
-     * @return
+     * @return A motor mérete
      */
     public String getSize() {
         return size;
     }
 
     /**
-     *
-     * @param size
+     * Beállítja a motor méretét.
+     * @param size A motor mérete.
      */
     public void setSize(String size) {
         this.size = size;
@@ -61,15 +55,15 @@ public class MotorSize {
 
     /**
      *
-     * @return
+     * @return A motor ára.
      */
     public int getCost() {
         return cost;
     }
 
     /**
-     *
-     * @param cost
+     * Beállítja a motor árát.
+     * @param cost A motor ára.
      */
     public void setCost(int cost) {
         this.cost = cost;

@@ -5,8 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 
 /**
- *
- * @author szani
+ * Egy felhasználót modellező osztály.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "user")
 @XmlAccessorType (XmlAccessType.FIELD)
@@ -27,9 +27,9 @@ public class User {
     }
 
     /**
-     *
-     * @param userName
-     * @param password
+     * Paraméteres konstruktora a {@link User} osztálynak.
+     * @param userName A felhasználónév.
+     * @param password A felhasználó jelszava
      */
     public User(String userName, String password) {
         this.userName = userName;
@@ -38,7 +38,7 @@ public class User {
 
     /**
      *
-     * @return
+     * @return A felhasználónév.
      */
     public String getUserName() {
         return userName;
@@ -46,23 +46,23 @@ public class User {
 
     /**
      *
-     * @return
+     * @return A felhasználó jelszava.
      */
     public String getPassword() {
         return password;
     }
     
     /**
-     *
-     * @param userName
+     * Beállítja a felhasználónevet.
+     * @param userName A felhasználónév
      */
     public void setUserName(String userName) {
         this.userName = userName;
     }
     
     /**
-     *
-     * @param password
+     * Beállítja a felhasználó jelszavát.
+     * @param password A felhasználó jelszava.
      */
     public void setPassword(String password) {
         this.password = password;

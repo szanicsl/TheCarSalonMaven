@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 /**
- *
+ * JaXB számára készült Adapter osztály, mely a {@link LocalDate}-{@link String} közti konvertálásokat végzi el.
  * @author Szanics Levente
  */
 public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {

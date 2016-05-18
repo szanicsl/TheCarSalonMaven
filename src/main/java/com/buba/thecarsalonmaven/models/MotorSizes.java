@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
  
 /**
- *
- * @author szani
+ * A motor méretét, vagy lehetséges méreteit tároló osztály.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "motorsizes")
 @XmlAccessorType (XmlAccessType.FIELD)
@@ -20,15 +20,15 @@ public class MotorSizes {
 
     /**
      *
-     * @return
+     * @return A motor méretét vagy lehetséges méreteit ({@link MotorSize) tartalmazó lista.
      */
     public List<MotorSize> getMotorSizes() {
         return motorSizes;
     }
 
     /**
-     *
-     * @param motorSizes
+     * Beállítja a motor méretét vagy lehetséges méreteit ({@link MotorSize) tartalmazó listát.
+     * @param motorSizes A motor méretét vagy lehetséges méreteit ({@link MotorSize) tartalmazó lista.
      */
     public void setMotorSizes(List<MotorSize> motorSizes) {
         this.motorSizes = motorSizes;

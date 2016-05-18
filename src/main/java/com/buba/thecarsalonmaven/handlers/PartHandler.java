@@ -3,7 +3,6 @@ package com.buba.thecarsalonmaven.handlers;
 import com.buba.thecarsalonmaven.models.Part;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.property.SimpleStringProperty;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.SAXException;

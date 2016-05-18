@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
  
 /**
- *
- * @author szani
+ * A motor típusát, vagy lehetséges típusait modellező osztály.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "motortypes")
 @XmlAccessorType (XmlAccessType.FIELD)
@@ -20,15 +20,15 @@ public class MotorTypes {
 
     /**
      *
-     * @return
+     * @return A motor típusát, vagy lehetséges típusait tartalmazó lista.
      */
     public List<MotorType> getMotorTypes() {
         return motorTypes;
     }
 
     /**
-     *
-     * @param motorTypes
+     * Beállítja a motor típusát, vagy lehetséges típusait tartalmazó listát.
+     * @param motorTypes A motor típusát, vagy lehetséges típusait tartalmazó lista.
      */
     public void setMotorTypes(List<MotorType> motorTypes) {
         this.motorTypes = motorTypes;
@@ -38,8 +38,8 @@ public class MotorTypes {
     public String toString() {
         String string = "";
         for(MotorType m : motorTypes){
-            string = string +" "+ m.toString();
+            string = string +", "+ m.toString();
         }
-        return "MotorTypes{" + "motortypes=" + string + '}';
+        return string;
     }
 }

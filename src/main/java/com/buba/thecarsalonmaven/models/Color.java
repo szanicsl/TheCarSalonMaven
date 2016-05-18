@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlAccessorType (XmlAccessType.FIELD)
 public class Color {
     @XmlValue
-    String color;
+    private String color;
     @XmlAttribute
-    int cost;
+    private int cost;
 
     /**
      * Üres konstruktora a {@link Color} osztálynak.

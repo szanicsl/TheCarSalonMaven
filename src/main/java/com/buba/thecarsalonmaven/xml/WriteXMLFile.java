@@ -1,29 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.buba.thecarsalonmaven.xml;
 
-import com.buba.thecarsalonmaven.models.Order;
 import com.buba.thecarsalonmaven.models.Orders;
-import com.buba.thecarsalonmaven.models.User;
 import com.buba.thecarsalonmaven.models.Users;
-import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+/**
+ * Ez az osztály a JaXB-hez hoz létre {@link JAXBContext}-t és {@link Marshaller}-t.
+ * @author Szanics Levente
+ */
 public class WriteXMLFile {
 
     private JAXBContext jaxbContext;
     private Marshaller jaxbMarshaller;
 
+    /**
+     * Üres konstruktor a {@link WriteXMLFile} osztályhoz.
+     */
     public WriteXMLFile() {
         
     }
     
+    /**
+     * Létrehozza a {@link JAXBContext}-t és a {@link Marshaller}-t a {@link Users} és az {@link Orders} osztályhoz.
+     * @param c Ha 0, akkor a {@link Users} oszályhoz, ha 1, akkor az {@link Orders} osztályhoz hozza létre a {@link JAXBContext}-t.
+     */
     public void init(int c){
         
         try {
@@ -39,10 +42,18 @@ public class WriteXMLFile {
         }
     }
     
+    /**
+     *
+     * @return Az osztályhoz tartozó {@link JAXBContext}
+     */
     public JAXBContext getJaxbContext() {
         return jaxbContext;
     }
 
+    /**
+     *
+     * @return Az osztályhoz tartozó {@link Marshaller}
+     */
     public Marshaller getJaxbMarshaller() {
         return jaxbMarshaller;
     }

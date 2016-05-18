@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
  
 /**
- *
- * @author szani
+ * A felhasználókat modellező osztály.
+ * @author Szanics Levente
  */
 @XmlRootElement(name = "users")
 @XmlAccessorType (XmlAccessType.FIELD)
@@ -20,15 +20,15 @@ public class Users {
 
     /**
      *
-     * @return
+     * @return A felhasználók listája.
      */
     public List<User> getUsers() {
         return users;
     }
 
     /**
-     *
-     * @param users
+     * Beállítja a felhasználók listáját.
+     * @param users A felhasználók listája.
      */
     public void setUsers(List<User> users) {
         this.users = users;
