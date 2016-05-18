@@ -19,7 +19,6 @@ package com.buba.thecarsalonmaven.xml;
 import com.buba.thecarsalonmaven.models.User;
 import com.buba.thecarsalonmaven.models.Users;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;

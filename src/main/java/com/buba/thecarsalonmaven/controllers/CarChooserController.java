@@ -2,26 +2,19 @@ package com.buba.thecarsalonmaven.controllers;
 
 import com.buba.thecarsalonmaven.MainApp;
 import com.buba.thecarsalonmaven.handlers.ConfCarHandler;
-import com.buba.thecarsalonmaven.models.Car;
 import com.buba.thecarsalonmaven.models.ConfCar;
 import com.buba.thecarsalonmaven.models.ConfCars;
-import com.buba.thecarsalonmaven.models.Order;
-import com.buba.thecarsalonmaven.xml.ReadXMLFile;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.xml.parsers.ParserConfigurationException;
@@ -39,8 +32,6 @@ public class CarChooserController {
     public void setMain(MainApp main) {
         this.main = main;
     }
-
-    public ReadXMLFile xmlCars = new ReadXMLFile();
     
     @FXML
     private Button configuratorButton;
@@ -94,7 +85,6 @@ public class CarChooserController {
             confCars.setConfCars(handlerConfCar.getConfCarList());
         }
         
-        xmlCars.readCars();
         carimage.setImage(new Image("img/no.png"));
         userLabel.textProperty().bind(MainApp.onlineUser);
         showCar(null);
