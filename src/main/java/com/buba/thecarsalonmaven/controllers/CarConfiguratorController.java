@@ -1,7 +1,7 @@
 package com.buba.thecarsalonmaven.controllers;
 
 import com.buba.thecarsalonmaven.handlers.ConfCarHandler;
-import com.buba.thecarsalonmaven.Logic;
+import com.buba.thecarsalonmaven.logic.Logic;
 import com.buba.thecarsalonmaven.handlers.PartHandler;
 import com.buba.thecarsalonmaven.models.Color;
 import com.buba.thecarsalonmaven.models.ConfCar;

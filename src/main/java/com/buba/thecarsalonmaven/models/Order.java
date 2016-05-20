@@ -1,6 +1,6 @@
 package com.buba.thecarsalonmaven.models;
 
-import com.buba.thecarsalonmaven.LocalDateAdapter;
+import com.buba.thecarsalonmaven.logic.LocalDateAdapter;
 import java.time.LocalDate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

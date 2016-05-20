@@ -15,6 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * A csomag a TheCarSalonMaven nevű projekt model osztályait tartalmazza, melyek többségét JaXB annotációkkal láttuk el.
+ * A mainclass-t tartalmazó csomag.
  */
-package com.buba.thecarsalonmaven.models;
+package com.buba.thecarsalonmaven;

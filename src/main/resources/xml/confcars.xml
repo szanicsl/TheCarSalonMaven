@@ -2,7 +2,7 @@
 
 <confcars>
     <confcar id="1" cost="1800000">
-        <name>A</name>
+        <name>Touran</name>
         <colors>
             <color cost="40000">Piros</color>
             <color cost="50000">Fekete</color>
@@ -26,7 +26,31 @@
         <level>2</level>
     </confcar>
     <confcar id="2" cost="2400000">
-        <name>B</name>
+        <name>Golf</name>
+        <colors>
+            <color cost="40000">Zöld</color>
+            <color cost="50000">Fekete</color>
+        </colors>
+        <motortypes>
+            <motortype>
+                <mname>dizel</mname>
+                <motorsizes>
+                    <motorsize cost="650000">1.6</motorsize>
+                    <motorsize cost="900000">2.0</motorsize>
+                </motorsizes>
+            </motortype>
+            <motortype>
+                <mname>benzin</mname>
+                <motorsizes>
+                    <motorsize cost="450000">1.5</motorsize>
+                    <motorsize cost="580000">1.6</motorsize>
+                </motorsizes>
+            </motortype>
+        </motortypes>
+        <level>3</level>
+    </confcar>
+    <confcar id="3" cost="2400000">
+        <name>Polo</name>
         <colors>
             <color cost="40000">Zöld</color>
             <color cost="50000">Fekete</color>

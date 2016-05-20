@@ -1,6 +1,6 @@
 package com.buba.thecarsalonmaven.controllers;
 
-import com.buba.thecarsalonmaven.Logic;
+import com.buba.thecarsalonmaven.logic.Logic;
 import com.buba.thecarsalonmaven.MainApp;
 import com.buba.thecarsalonmaven.models.Order;
 import com.buba.thecarsalonmaven.models.Part;

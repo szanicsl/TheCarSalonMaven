@@ -1,5 +1,6 @@
-package com.buba.thecarsalonmaven;
+package com.buba.thecarsalonmaven.logic;
 
+import com.buba.thecarsalonmaven.MainApp;
 import com.buba.thecarsalonmaven.handlers.OrderHandler;
 import com.buba.thecarsalonmaven.models.Color;
 import com.buba.thecarsalonmaven.models.Colors;
