@@ -61,7 +61,6 @@ public class LogicTest {
     private Order orderB;
     private Parts parts;
     private OrderHandler handler = new OrderHandler();
-    FileCreator fCreator = new FileCreator();
 
     public LogicTest() {
         colors.getColors().add(new Color("szín név", 500));
@@ -98,6 +97,7 @@ public class LogicTest {
 
     @Test
     public void testRemoveOrder() {
+        FileCreator fCreator = new FileCreator();
         List<Order> orderListA = new ArrayList<Order>();
         List<Order> orderListB = new ArrayList<Order>();
         List<Order> savedList = new ArrayList<Order>();
@@ -108,9 +108,11 @@ public class LogicTest {
         assertEquals(orderListB, logic.removeOrder(orderListA, orderA));
         logic.actualizeOrders(savedList);
     }
-    
+
     @Test
     public void testGetOrdersList() throws Exception {
+
+        FileCreator fCreator = new FileCreator();
         partList.add(partA);
         partList.add(partB);
         Parts parts = new Parts();
@@ -118,15 +120,29 @@ public class LogicTest {
         List<Order> savedList = new ArrayList<Order>();
         List<Order> orderList = new ArrayList<Order>();
         savedList.addAll(logic.getOrdersList());
-        orderList.addAll(logic.makeOrder(confCar, motorSizes.getMotorSizes().get(0)
-                , motorTypes.getMotorTypes().get(0)
-                , colors.getColors().get(0)
-                , 20000
-                , partList));
+        orderList.addAll(logic.makeOrder(confCar, motorSizes.getMotorSizes().get(0), motorTypes.getMotorTypes().get(0), colors.getColors().get(0), 20000, partList));
         logic.actualizeOrders(savedList);
         orderList.clear();
         orderList.addAll(logic.getOrdersList());
         assertEquals(savedList, orderList);
     }
 
+    @Test
+    public void testRegister(){
+        List<User> savedList = new ArrayList<User>();
+        List<User> userList = new ArrayList<User>();
+        savedList.addAll(logic.getUsersList());
+        userList.addAll(logic.register("teszt", "teszt"));
+        logic.actualizeUsers(savedList);
+        userList.clear();
+        userList.addAll(logic.getUsersList());
+        assertEquals(userList, savedList);
+    }
+    
+    @Test
+    public void testLogin(){
+        FileCreator fCreator = new FileCreator();
+        assertEquals(true,logic.login("default", "default"));
+        assertEquals(false, logic.login("a", "a"));
+    }
 }

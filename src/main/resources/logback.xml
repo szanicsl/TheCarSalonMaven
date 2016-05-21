@@ -9,9 +9,9 @@
         <appender name="FILE" class="ch.qos.logback.core.FileAppender">
             <file>LogFile.log</file>
             <layout class="ch.qos.logback.classic.PatternLayout">
-              <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
             </layout>
-         </appender>
+        </appender>
 
 	<logger name="com.javacodegeeks.examples.logbackexample.beans" level="INFO" additivity="false">
             <appender-ref ref="STDOUT" />
