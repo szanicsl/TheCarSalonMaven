@@ -39,7 +39,11 @@ public class MotorTypes {
     public String toString() {
         String string = "";
         for(MotorType m : motorTypes){
+            if(string.equals("")){
+                string = m.toString();
+            }else{
             string = string +", "+ m.toString();
+            }
         }
         return string;
     }

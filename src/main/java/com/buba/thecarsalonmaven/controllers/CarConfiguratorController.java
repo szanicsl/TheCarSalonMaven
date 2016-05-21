@@ -93,6 +93,9 @@ public class CarConfiguratorController {
 
     @FXML
     private Label costLabel;
+    
+    @FXML
+    private Label messageLabel;
 
     @FXML
     private ListView<Part> extraListView;
@@ -135,10 +138,11 @@ public class CarConfiguratorController {
                     , colorChooser.getSelectionModel().getSelectedItem()
                     , Integer.parseInt(costLabel.getText())
                     , partsList);
-
+            messageLabel.setText("A rendelés megtörtént.");
             logger.info("Rendelés történt.");
 
         } else {
+            messageLabel.setText("Sikertelen rendelés. Nem lett választva minden listából elem.");
             logger.warn("Sikertelen rendelés. Nem lett választva minden listából elem.");
         }
     }
@@ -202,7 +206,8 @@ public class CarConfiguratorController {
         motorTypeChooser.valueProperty().addListener(new ChangeListener<MotorType>() {
             @Override
             public void changed(ObservableValue<? extends MotorType> observable, MotorType oldValue, MotorType newValue) {
-                motorType = motorTypeChooser.getSelectionModel().getSelectedItem();;
+                motorType = motorTypeChooser.getSelectionModel().getSelectedItem();
+                motorSizeChooser.getSelectionModel().clearSelection();
                 if (motorType == null) {
                     motorType = new MotorType();
                 }
@@ -235,6 +240,6 @@ public class CarConfiguratorController {
                 costLabel.setText(String.valueOf(logic.getCost(confCar, color, motorSize, addedExtraList.subList(0, addedExtraList.size()))));
             }
         });
-
+        logger.debug("CarConfiguratorController inicializálva.");
     }
 }

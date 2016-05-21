@@ -56,7 +56,7 @@ public class ConfCar{
     }
 
     /**
-     * Beállítja a kocsi nevét
+     * Beállítja a kocsi nevét.
      * @param name A beállítandó név.
      */
     public void setName(String name) {

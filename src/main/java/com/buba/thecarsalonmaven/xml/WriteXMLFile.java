@@ -6,6 +6,7 @@ import com.buba.thecarsalonmaven.models.Users;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import org.slf4j.LoggerFactory;
 
 /**
  * Ez az osztály a JaXB-hez hoz létre {@link JAXBContext}-t és {@link Marshaller}-t.
@@ -13,6 +14,7 @@ import javax.xml.bind.Marshaller;
  */
 public class WriteXMLFile {
 
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(WriteXMLFile.class);
     private JAXBContext jaxbContext;
     private Marshaller jaxbMarshaller;
 
@@ -38,7 +40,7 @@ public class WriteXMLFile {
             this.jaxbMarshaller = jaxbContext.createMarshaller();
             this.jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         } catch (JAXBException ex) {
-            System.out.println("HIBA");
+            logger.error(ex.getClass().getName() + ": Marshaller létrehozási hiba.");
         }
     }
     

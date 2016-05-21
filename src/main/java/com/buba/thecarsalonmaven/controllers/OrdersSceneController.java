@@ -15,9 +15,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import org.slf4j.LoggerFactory;
 
 public class OrdersSceneController {
 
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(OrdersSceneController.class);
     private Stage stage;
     private MainApp main;
     private Logic logic = new Logic();
@@ -66,6 +68,7 @@ public class OrdersSceneController {
 
     @FXML
     void handleCancelButton(ActionEvent event) {
+        logger.info("Rendelések bezárása.");
         stage.close();
     }
 
@@ -73,12 +76,22 @@ public class OrdersSceneController {
     void handleRemoveButton(ActionEvent event) {
         Order order = orderListView.getSelectionModel().getSelectedItem();
         if(logic.removable(order)){
-            orderList.setAll(logic.removeOrder(orderList,order));
+            orderList.clear();
+            orderList.setAll(logic.getOrdersList());
+            logic.removeOrder(orderList,order);
+            orderList.clear();
+            orderList.setAll(logic.getOrdersList());
             orderListView.setItems(orderList);
             messageLabel.setText("A rendelés törölve.");
-            orderListView.getSelectionModel().clearSelection();
+            typeLabel.setText("");
+            motorSizeLabel.setText("");
+            motorTypeLabel.setText("");
+            colorLabel.setText("");
+            extrasList.getItems().clear();
+            logger.info("Rendelés törölve.");
         }else{
             messageLabel.setText("Lejárt a 3 nap. A rendelés nem törölhető.");
+            logger.info("Rendelés sikertelen törlése. Lejárt a 3 nap.");
         }
     }
 
@@ -91,7 +104,6 @@ public class OrdersSceneController {
         }
 
         logic.getOrders().getOrderList().stream().filter((o) -> (o.getUser().equals(MainApp.onlineUser.get()))).forEach((o) -> {
-            System.out.println("Online: "+MainApp.onlineUser.get()+", User: "+o.getUser());
             orderList.add(o);
         });
         
@@ -108,10 +120,11 @@ public class OrdersSceneController {
                     colorLabel.setText(newValue.getCar().getColors().getColors().get(0).getColor());
                     partList.setAll(newValue.getParts().getParts());
                     extrasList.setItems(partList);
-                    System.out.println("Selected item: " + newValue);
+                    logger.info(newValue.getCar().getName()+", rendelt kocsi kiválasztva.");
                 }
             }
         });
+        logger.debug("OrdersSceneController inicializálva.");
     }
 
 }

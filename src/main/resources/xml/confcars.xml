@@ -1,76 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <confcars>
-    <confcar id="1" cost="1800000">
-        <name>Touran</name>
+    
+    <confcar id="1" cost="6000000">
+        <name>Volkswagen Touran</name>
         <colors>
-            <color cost="40000">Piros</color>
-            <color cost="50000">Fekete</color>
+            <color cost="0">Urano-szürke</color>
+            <color cost="38100">Hófehér</color>
+            <color cost="112000">Alkonyvörös metál</color>
+            <color cost="112000">Kriptonszürke metál</color>
+            <color cost="112000">Toffee-barna metál</color>
+            <color cost="112000">Silk-kék metál</color>
+            <color cost="112000">Mélyfekete gyöngyház</color>
+            <color cost="142000">Atlantic-kék metál</color>
+            <color cost="142000">Caribbean-kék metál</color>
+            <color cost="142000">Indium-szürke metál</color>
+            <color cost="282000">Habanero-narancs metál</color>
         </colors>
         <motortypes>
             <motortype>
-                <mname>dizel</mname>
+                <mname>Gázolaj</mname>
                 <motorsizes>
-                    <motorsize cost="500000">1.4</motorsize>
-                    <motorsize cost="700000">1.6</motorsize>
+                    <motorsize cost="1200000">1.6 110LE</motorsize>
+                    <motorsize cost="1850000">2.0 150LE</motorsize>
+                    <motorsize cost="2300000">2.0 190LE</motorsize>
                 </motorsizes>
             </motortype>
             <motortype>
-                <mname>benzin</mname>
+                <mname>Benzin</mname>
                 <motorsizes>
-                    <motorsize cost="450000">1.5</motorsize>
-                    <motorsize cost="580000">1.6</motorsize>
+                    <motorsize cost="600000">1.2 110LE</motorsize>
+                    <motorsize cost="920000">1.4 125LE</motorsize>
+                    <motorsize cost="1200000">1.4 150LE</motorsize>
+                    <motorsize cost="1820000">1.8 180LE</motorsize>
+                </motorsizes>
+            </motortype>
+        </motortypes>
+        <level>3</level>
+    </confcar>
+    
+    <confcar id="2" cost="4200000">
+        <name>Volkswagen Golf</name>
+        <colors>
+            <color cost="0">Urano-szürke</color>
+            <color cost="38100">Hófehér</color>
+            <color cost="42000">Cornflower-kék</color>
+            <color cost="42000">Fekete</color>
+            <color cost="42000">Villámpiros</color>
+            <color cost="112000">Alkonyvörös metál</color>
+            <color cost="112000">Kriptonszürke metál</color>
+            <color cost="112000">Toffee-barna metál</color>
+            <color cost="112000">Silk-kék metál</color>
+            <color cost="112000">Mélyfekete gyöngyház</color>
+        </colors>
+        <motortypes>
+            <motortype>
+                <mname>Gázolaj</mname>
+                <motorsizes>
+                    <motorsize cost="650000">1.6 110LE</motorsize>
+                    <motorsize cost="950000">2.0 150LE</motorsize>
+                </motorsizes>
+            </motortype>
+            <motortype>
+                <mname>Benzin</mname>
+                <motorsizes>
+                    <motorsize cost="300000">1.2 85LE</motorsize>
+                    <motorsize cost="360000">1.2 110LE</motorsize>
+                    <motorsize cost="400000">1.4 125LE</motorsize>
+                </motorsizes>
+            </motortype>
+        </motortypes>
+        <level>3</level>
+    </confcar>
+    
+    <confcar id="3" cost="4200000">
+        <name>Volkswagen Golf GTI</name>
+        <colors>
+            <color cost="0">Urano-szürke</color>
+            <color cost="38100">Hófehér</color>
+            <color cost="42000">Cornflower-kék</color>
+            <color cost="42000">Fekete</color>
+            <color cost="42000">Villámpiros</color>
+            <color cost="112000">Alkonyvörös metál</color>
+            <color cost="112000">Kriptonszürke metál</color>
+            <color cost="112000">Toffee-barna metál</color>
+            <color cost="112000">Silk-kék metál</color>
+            <color cost="112000">Mélyfekete gyöngyház</color>
+        </colors>
+        <motortypes>
+            <motortype>
+                <mname>Benzin</mname>
+                <motorsizes>
+                    <motorsize cost="1400000">2.0 220LE</motorsize>
+                </motorsizes>
+            </motortype>
+        </motortypes>
+        <level>3</level>
+    </confcar>
+    
+    <confcar id="4" cost="7000000">
+        <name>Volkswagen Golf GTE</name>
+        <colors>
+            <color cost="0">Urano-szürke</color>
+            <color cost="38100">Hófehér</color>
+            <color cost="42000">Cornflower-kék</color>
+            <color cost="42000">Fekete</color>
+            <color cost="42000">Villámpiros</color>
+            <color cost="112000">Alkonyvörös metál</color>
+            <color cost="112000">Mélyfekete gyöngyház</color>
+        </colors>
+        <motortypes>
+            <motortype>
+                <mname>Hibrid B/E</mname>
+                <motorsizes>
+                    <motorsize cost="1600000">1.4 150LE</motorsize>
+                </motorsizes>
+            </motortype>
+        </motortypes>
+        <level>3</level>
+    </confcar>
+    
+    <confcar id="5" cost="7000000">
+        <name>Volkswagen Golf R</name>
+        <colors>
+            <color cost="0">Urano-szürke</color>
+            <color cost="38100">Hófehér</color>
+            <color cost="42000">Cornflower-kék</color>
+            <color cost="42000">Fekete</color>
+            <color cost="42000">Villámpiros</color>
+            <color cost="112000">Alkonyvörös metál</color>
+            <color cost="112000">Kriptonszürke metál</color>
+            <color cost="112000">Toffee-barna metál</color>
+            <color cost="112000">Silk-kék metál</color>
+            <color cost="112000">Mélyfekete gyöngyház</color>
+        </colors>
+        <motortypes>
+            <motortype>
+                <mname>Benzin</mname>
+                <motorsizes>
+                    <motorsize cost="1600000">2.0 TDI 300LE</motorsize>
+                </motorsizes>
+            </motortype>
+        </motortypes>
+        <level>3</level>
+    </confcar>
+    
+    <confcar id="6" cost="3800000">
+        <name>Volkswagen Polo</name>
+        <colors>
+            <color cost="0">Urano-szürke</color>
+            <color cost="38100">Hófehér</color>
+            <color cost="42000">Cornflower-kék</color>
+            <color cost="42000">Fekete</color>
+            <color cost="42000">Villámpiros</color>
+            <color cost="112000">Alkonyvörös metál</color>
+            <color cost="112000">Kriptonszürke metál</color>
+            <color cost="112000">Toffee-barna metál</color>
+            <color cost="112000">Silk-kék metál</color>
+            <color cost="112000">Mélyfekete gyöngyház</color>
+        </colors>
+        <motortypes>
+            <motortype>
+                <mname>Gázolaj</mname>
+                <motorsizes>
+                    <motorsize cost="500000">1.4 90LE</motorsize>
+                </motorsizes>
+            </motortype>
+            <motortype>
+                <mname>Benzin</mname>
+                <motorsizes>
+                    <motorsize cost="300000">1.2 85LE</motorsize>
+                    <motorsize cost="400000">1.4 110LE</motorsize>
                 </motorsizes>
             </motortype>
         </motortypes>
         <level>2</level>
     </confcar>
-    <confcar id="2" cost="2400000">
-        <name>Golf</name>
+    
+    <confcar id="7" cost="3000000">
+        <name>Volkswagen UP!</name>
         <colors>
-            <color cost="40000">Zöld</color>
-            <color cost="50000">Fekete</color>
+            <color cost="0">Urano-szürke</color>
+            <color cost="38100">Hófehér</color>
+            <color cost="42000">Cornflower-kék</color>
+            <color cost="42000">Villámpiros</color>
+            <color cost="112000">Alkonyvörös metál</color>
+            <color cost="112000">Mélyfekete gyöngyház</color>
         </colors>
         <motortypes>
             <motortype>
-                <mname>dizel</mname>
+                <mname>Benzin</mname>
                 <motorsizes>
-                    <motorsize cost="650000">1.6</motorsize>
-                    <motorsize cost="900000">2.0</motorsize>
-                </motorsizes>
-            </motortype>
-            <motortype>
-                <mname>benzin</mname>
-                <motorsizes>
-                    <motorsize cost="450000">1.5</motorsize>
-                    <motorsize cost="580000">1.6</motorsize>
+                    <motorsize cost="300000">1.2 80LE</motorsize>
+                    <motorsize cost="400000">1.4 95LE</motorsize>
                 </motorsizes>
             </motortype>
         </motortypes>
-        <level>3</level>
+        <level>1</level>
     </confcar>
-    <confcar id="3" cost="2400000">
-        <name>Polo</name>
-        <colors>
-            <color cost="40000">Zöld</color>
-            <color cost="50000">Fekete</color>
-        </colors>
-        <motortypes>
-            <motortype>
-                <mname>dizel</mname>
-                <motorsizes>
-                    <motorsize cost="650000">1.6</motorsize>
-                    <motorsize cost="900000">2.0</motorsize>
-                </motorsizes>
-            </motortype>
-            <motortype>
-                <mname>benzin</mname>
-                <motorsizes>
-                    <motorsize cost="450000">1.5</motorsize>
-                    <motorsize cost="580000">1.6</motorsize>
-                </motorsizes>
-            </motortype>
-        </motortypes>
-        <level>3</level>
-    </confcar>
+    
 </confcars>

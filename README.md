@@ -25,3 +25,20 @@ A site legenerálásához:
 ```
 mvn site
 ```
+
+### Autós képek
+
+Az `/src/main/resources/img/` könyvtárban szereplő következő képek, a Porsche Hungaria Kereskedelmi Kft. tulajdonát képzik.
+```
+1.png
+2.png
+3.png
+4.png
+5.png
+6.png
+7.png
+```
+Forrás:
+```
+http://www.volkswagen.hu/
+```

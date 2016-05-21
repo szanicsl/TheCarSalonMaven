@@ -14,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -24,7 +23,7 @@ import org.xml.sax.SAXException;
 
 public class LoginSceneController {
 
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(CarConfiguratorController.class);
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(LoginSceneController.class);
     private String path = System.getProperty("user.home") + "/.projectdatabase/";
     SAXParserFactory sPFactory = SAXParserFactory.newInstance();
     SAXParser parser;
@@ -94,11 +93,7 @@ public class LoginSceneController {
 
     @FXML
     void initialize() throws ParserConfigurationException, SAXException, IOException {
-        parser = sPFactory.newSAXParser();
-        parser.parse(new File(path + "users.xml"), handler);
-
-        users.setUsers(handler.getUserList());
-        users.getUsers().stream().forEach(System.out::println);
-        logger.info("LoginSceneController objektum sikeres inicializálása");
+        users.setUsers(logic.getUsersList());
+        logger.debug("LoginSceneController inicializálva.");
     }
 }

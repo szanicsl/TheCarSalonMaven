@@ -33,8 +33,6 @@ import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -44,6 +42,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
 /**
@@ -52,6 +51,7 @@ import org.w3c.dom.Document;
  */
 public class FileCreator {
 
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(FileCreator.class);
     /**
      * Üres konstrukrora a {@link FileCreator} osztálynak.
      */
@@ -70,6 +70,7 @@ public class FileCreator {
         File dir = new File(path);
         if(!dir.exists()){
             dir.mkdir();
+            logger.debug("Könyvtár létrehozva az adatbázisnak.");
         }
         List<File> filesList = new ArrayList<File>();
         filesList.add(new File(path+"users.xml"));
@@ -89,8 +90,8 @@ public class FileCreator {
 
                     transformer.transform(source, result);
 
-                } catch (ParserConfigurationException | TransformerException pce) {
-                    pce.printStackTrace();
+                } catch (ParserConfigurationException | TransformerException ex) {
+                    logger.error(ex.getClass().getName() + ": Adatbázis fájlok létrehozása sikertelen.");
                 }
                 if (file.equals(new File(path+"users.xml"))) {
                     try {
@@ -99,8 +100,9 @@ public class FileCreator {
                         users.getUsers().add(new User("default", "default"));
 
                         w.getJaxbMarshaller().marshal(users, new File(path+"users.xml"));
+                        logger.info("Default felhasználó létrehozva. Users.xml létrehozva.");
                     } catch (JAXBException ex) {
-                        Logger.getLogger(FileCreator.class.getName()).log(Level.SEVERE, null, ex);
+                        logger.error(ex.getClass().getName() + ": users.xml létrehozási/módosítási hiba.");
                     }
                 }else if(file.equals(new File(path+"orders.xml"))){
                     try {
@@ -118,8 +120,9 @@ public class FileCreator {
                         orders.getOrderList().add(new Order(new ConfCar("teszt", 0, colors,motorTypes, 0), parts, 0, "", LocalDate.now()));
 
                         w.getJaxbMarshaller().marshal(orders, new File(path+"orders.xml"));
+                        logger.info("Teszt rendelés létrehozva. Orders.xml létrehozva.");
                     } catch (JAXBException ex) {
-                        Logger.getLogger(FileCreator.class.getName()).log(Level.SEVERE, null, ex);
+                        logger.error(ex.getClass().getName() + ": orders.xml létrehozási/módosítási hiba.");
                     }
                 }
             }

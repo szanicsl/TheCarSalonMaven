@@ -45,7 +45,11 @@ public class Colors {
     public String toString() {
         String string = "";
         for(Color c : colors){
+            if(string.equals("")){
+                string = c.toString();
+            }else{
             string = string +", "+ c.toString();
+            }
         }
         return string;
     }

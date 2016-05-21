@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="800.0" styleClass="field" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.buba.thecarsalonmaven.controllers.CarChooserController">
     <children>
-          <AnchorPane layoutX="10.0" layoutY="14.0" minWidth="160.0" style="-fx-background-color: #FFDFAA; -fx-border-color: #FFEAEA; -fx-border-width: 2;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+          <AnchorPane layoutX="10.0" layoutY="14.0" style="-fx-background-color: #FFDFAA; -fx-border-color: #FFEAEA; -fx-border-width: 2;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
               <children>
             <Button fx:id="configuratorButton" mnemonicParsing="false" onAction="#handleConfiguratorButton" text="Konfigurátor" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
             <Button fx:id="sceneChooser" layoutY="420.0" mnemonicParsing="false" onAction="#handleSceneChooserButton" text="Kijelentkezés" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
@@ -20,13 +25,52 @@
           </AnchorPane>
           <AnchorPane layoutX="175.0" layoutY="-6.0" minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="625.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <children>
-            <ListView fx:id="carListView" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                  <Label id="label" fx:id="label" layoutX="20.0" layoutY="261.0" prefHeight="200.0" prefWidth="280.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+            <ListView fx:id="carListView" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #FFEAEA; -fx-border-width: 2;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
             <ImageView id="carimage" fx:id="carimage" fitHeight="208.0" fitWidth="268.0" layoutX="352.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
                <effect>
                   <DropShadow />
                </effect>
             </ImageView>
+            <GridPane layoutX="20.0" layoutY="255.0" prefHeight="200.0" prefWidth="280.0" style="-fx-border-color: #FFEAEA; -fx-border-width: 2;">
+              <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="113.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="165.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Autó típus:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="carLabel" prefHeight="50.0" prefWidth="180.0" GridPane.columnIndex="1" />
+                  <Label text="Motor típusok:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Színek:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="motorLabel" prefHeight="50.0" prefWidth="179.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="colorLabel" prefHeight="100.0" prefWidth="180.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
               </children>
           </AnchorPane>
     </children>

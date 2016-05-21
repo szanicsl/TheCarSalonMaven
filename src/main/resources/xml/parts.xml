@@ -2,23 +2,133 @@
 
 <parts>
     <part>
-        <pname>A</pname>
+        <pname>Adaptív lengéscsillapítás-szabályzás</pname>
         <plevel>3</plevel>
-        <pcost>10000</pcost>
+        <pcost>308000</pcost>
     </part>
     <part>
-        <pname>B</pname>
+        <pname>Állóhelyzeti fűtés</pname>
+        <plevel>3</plevel>
+        <pcost>430000</pcost>
+    </part>
+    <part>
+        <pname>App-Connect</pname>
         <plevel>2</plevel>
-        <pcost>10000</pcost>
+        <pcost>59000</pcost>
     </part>
     <part>
-        <pname>C</pname>
-        <plevel>1</plevel>
-        <pcost>10000</pcost>
+        <pname>Bi-Xenon fényszóró, LED-nappali fény</pname>
+        <plevel>2</plevel>
+        <pcost>265000</pcost>
     </part>
     <part>
-        <pname>D</pname>
+        <pname>City-vészfék funkció</pname>
+        <plevel>2</plevel>
+        <pcost>85000</pcost>
+    </part>
+    <part>
+        <pname>ECO-üzemmód választó</pname>
         <plevel>3</plevel>
-        <pcost>10000</pcost>
+        <pcost>45600</pcost>
+    </part>
+    <part>
+        <pname>Elektromosan behajtható külső tükrök</pname>
+        <plevel>1</plevel>
+        <pcost>43000</pcost>
+    </part>
+    <part>
+        <pname>Esőérzékelős ablaktörlő</pname>
+        <plevel>2</plevel>
+        <pcost>57000</pcost>
+    </part>
+    <part>
+        <pname>Függönylégzsák elöl/hátul</pname>
+        <plevel>1</plevel>
+        <pcost>150000</pcost>
+    </part>
+    <part>
+        <pname>iPod/iPhone csatlakozó</pname>
+        <plevel>3</plevel>
+        <pcost>20300</pcost>
+    </part>
+    <part>
+        <pname>Klímaberendezés</pname>
+        <plevel>2</plevel>
+        <pcost>110000</pcost>
+    </part>
+    <part>
+        <pname>Komfort csomag</pname>
+        <plevel>3</plevel>
+        <pcost>130000</pcost>
+    </part>
+    <part>
+        <pname>Kulcs nélküli nyitás/zárás és indítás</pname>
+        <plevel>3</plevel>
+        <pcost>106000</pcost>
+    </part>
+    <part>
+        <pname>Multifunkciós kijelző</pname>
+        <plevel>3</plevel>
+        <pcost>45000</pcost>
+    </part>
+        <part>
+        <pname>Navigáció funkció</pname>
+        <plevel>3</plevel>
+        <pcost>201000</pcost>
+    </part>
+    <part>
+        <pname>Panoráma üveg tolótető</pname>
+        <plevel>3</plevel>
+        <pcost>260000</pcost>
+    </part>
+    <part>
+        <pname>Park Assist 2.0</pname>
+        <plevel>3</plevel>
+        <pcost>217000</pcost>
+    </part>
+    <part>
+        <pname>Parkolóradar elöl/hátul</pname>
+        <plevel>3</plevel>
+        <pcost>165000</pcost>
+    </part>
+    <part>
+        <pname>Sávtartó rendszer</pname>
+        <plevel>3</plevel>
+        <pcost>177000</pcost>
+    </part>
+    <part>
+        <pname>Sport Select futómű</pname>
+        <plevel>3</plevel>
+        <pcost>67000</pcost>
+    </part>
+    <part>
+        <pname>Szőnyegbetét elöl/hátul</pname>
+        <plevel>1</plevel>
+        <pcost>21000</pcost>
+    </part>
+    <part>
+        <pname>Távolságtartó automatika</pname>
+        <plevel>3</plevel>
+        <pcost>156000</pcost>
+    </part>
+    <part>
+        <pname>Téli csomag</pname>
+        <plevel>1</plevel>
+        <pcost>115000</pcost>
+    </part>
+    <part>
+        <pname>Tolató kamera</pname>
+        <plevel>2</plevel>
+        <pcost>77000</pcost>
+    </part>
+    <part>
+        <pname>Üléshuzat, alcantara/bőr</pname>
+        <plevel>2</plevel>
+        <pcost>312000</pcost>
+    </part>
+    <part>
+        <pname>Vezetőülés elektromos állítással</pname>
+        <plevel>3</plevel>
+        <pcost>143000</pcost>
     </part>
 </parts>

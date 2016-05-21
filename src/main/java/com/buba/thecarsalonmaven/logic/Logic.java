@@ -80,6 +80,7 @@ public class Logic {
      * @return Visszatérési érték {@code true}, ha legalább 3 karakter hosszú a {@code userName}, egyébként {@code false}.
      */
     public boolean userNameValidate(String userName) {
+        logger.info("Felhasználónév validitás ellenőrzés.");
         return userName.length() >= 3;
     }
 
@@ -89,6 +90,7 @@ public class Logic {
      * @return Visszatérési érték {@code true}, ha legalább 4 karakter hosszú a {@code password}, egyébként {@code false}.
      */
     public boolean passwordValidate(String password) {
+        logger.info("Jelszó validitás ellenőrzés.");
         return password.length() >= 4;
     }
 
@@ -150,7 +152,7 @@ public class Logic {
     /**
      * Létrehoz egy új rendelést a kapott paraméterek alapján, majd azt
      * hozzáadja az orders.xml-ből beolvasott rendelések listájához, és ezt a
-     * listát
+     * listát.
      *
      * @param confCar A rendelt autó.
      * @param motorSize A rendelt autó motor mérete.
@@ -202,7 +204,7 @@ public class Logic {
             orders.getOrderList().clear();
             orders.getOrderList().addAll(ordersList);
             w.getJaxbMarshaller().marshal(orders, new File(path + "orders.xml"));
-            logger.info("orders.xml sikeresen módosítva. Rendelés történt.");
+            logger.info("orders.xml sikeresen módosítva. Aktualizálva.");
             return orders.getOrderList();
         } catch (JAXBException ex) {
             logger.error(ex.getClass().getName() + ": orders.xml létrehozási/módosítási hiba.");
@@ -309,7 +311,7 @@ public class Logic {
             users.getUsers().clear();
             users.getUsers().addAll(userList);
             w.getJaxbMarshaller().marshal(users, new File(path + "users.xml"));
-            logger.info("users.xml sikeresen módosítva. Regisztáció történt.");
+            logger.info("users.xml sikeresen módosítva. Aktualizálva.");
         } catch (JAXBException ex) {
             logger.error(ex.getClass().getName() + ": users.xml létrehozási/módosítási hiba.");
             return null;
@@ -332,8 +334,10 @@ public class Logic {
         });
         if (contains) {
             contains = false;
+            logger.info("Felhasználónév és jelszó jó. Belépés.");
             return !contains; //true
         } else {
+            logger.info("Rossz belépési adatok.");
             return contains; //false
         }
     }
