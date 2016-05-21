@@ -37,7 +37,12 @@ public class Logic {
     /**
      * Egy {@link Orders} típusú objektum, amelyben letároljuk a {@link Logic} osztály metódusai által előállított rendelések listáját.
      */
-    public static Orders orders = new Orders();
+    public Orders orders = new Orders();
+
+    public Orders getOrders() {
+        return orders;
+    }
+
     private OrderHandler handler = new OrderHandler();
 
     private SAXParserFactory sPFactory = SAXParserFactory.newInstance();
@@ -113,7 +118,7 @@ public class Logic {
      * @param cost A rendelt autó ára.
      * @param partList A rendelt autóba rakott extrák listája.
      */
-    public void makeOrder(ConfCar confCar, MotorSize motorSize, MotorType motorType, Color color, int cost, ObservableList<Part> partList) {
+    public List<Order> makeOrder(ConfCar confCar, MotorSize motorSize, MotorType motorType, Color color, int cost, List<Part> partList) {
         MotorSizes motorSizes = new MotorSizes();
         MotorTypes motorTypes = new MotorTypes();
         Colors colors = new Colors();
@@ -129,22 +134,41 @@ public class Logic {
         confCar.setMotorTypes(motorTypes);
         getOrdersList();
 
+        Order order = new Order(confCar, parts, cost, MainApp.onlineUser.get(), LocalDate.now());
         try {
             WriteXMLFile w = new WriteXMLFile();
             w.init(1);
-            orders.getOrderList().add(new Order(confCar, parts, cost, MainApp.onlineUser.get(), LocalDate.now()));
+            orders.getOrderList().add(order);
             w.getJaxbMarshaller().marshal(orders, new File(path+"orders.xml"));
             logger.info("orders.xml sikeresen módosítva. Rendelés történt.");
+            return orders.getOrderList();
         } catch (JAXBException ex) {
             ex.printStackTrace();
             logger.error(ex.getClass().getName() + ": orders.xml létrehozási/módosítási hiba.");
+            return null;
+        }
+    }
+    
+    public List<Order> actualizeOrders(List<Order> ordersList){
+        try {
+            WriteXMLFile w = new WriteXMLFile();
+            w.init(1);
+            orders.getOrderList().clear();
+            orders.getOrderList().addAll(ordersList);
+            w.getJaxbMarshaller().marshal(orders, new File(path+"orders.xml"));
+            logger.info("orders.xml sikeresen módosítva. Rendelés történt.");
+            return orders.getOrderList();
+        } catch (JAXBException ex) {
+            ex.printStackTrace();
+            logger.error(ex.getClass().getName() + ": orders.xml létrehozási/módosítási hiba.");
+            return null;
         }
     }
     
     /**
      * Lekéri az orders.xml-ből a rendeléseket, feltölti a {@code handler}-ben található listát velük, majd átadja azt az {@link Orders} típusú statikus {@link orders} tagnak.
      */
-    public void getOrdersList() {
+    public List<Order> getOrdersList() {
         try {
             parser = sPFactory.newSAXParser();
             if (!handler.getOrdersList().isEmpty()) {
@@ -153,13 +177,20 @@ public class Logic {
             parser.parse(new File(path + "orders.xml"), handler);
 
             orders.setOrderList(handler.getOrdersList());
+            
             logger.info("Rendelések sikeresen lekérdezve.");
+            
+            return handler.getOrdersList();
         } catch (ParserConfigurationException ex) {
             logger.error(ex.getClass().getName() + ": Sikertelen dátum átalakítás.");
+            return null;
         } catch (SAXException ex) {
             logger.error(ex.getClass().getName() + ": Sikertelen XML beolvasás.");
+            return null;
         } catch (IOException ex) {
             logger.error(ex.getClass().getName() + ": Sikertelen XML megnyitás.");
+            return null;
         }
     }
+
 }

@@ -1,5 +1,6 @@
 package com.buba.thecarsalonmaven.models;
 
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -153,5 +154,39 @@ public class ConfCar{
     public String toLabelString(){
         return "Név: "+name+"\nMotor típusok: "+motorTypes+"\nSzínek: "+colors;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ConfCar other = (ConfCar) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.cost != other.cost) {
+            return false;
+        }
+        if (this.level != other.level) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.colors, other.colors)) {
+            return false;
+        }
+        if (!Objects.equals(this.motorTypes, other.motorTypes)) {
+            return false;
+        }
+        return true;
+    }
+    
     
 }

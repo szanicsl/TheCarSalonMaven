@@ -2,6 +2,7 @@ package com.buba.thecarsalonmaven.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
  
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -42,4 +43,24 @@ public class MotorTypes {
         }
         return string;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MotorTypes other = (MotorTypes) obj;
+        if (!Objects.equals(this.motorTypes, other.motorTypes)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

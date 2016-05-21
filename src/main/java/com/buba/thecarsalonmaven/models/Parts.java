@@ -2,6 +2,7 @@ package com.buba.thecarsalonmaven.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -32,5 +33,24 @@ public class Parts {
     public void setParts(List<Part> parts) {
         this.parts = parts;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Parts other = (Parts) obj;
+        if (!Objects.equals(this.parts, other.parts)) {
+            return false;
+        }
+        return true;
+    }
+    
     
 }

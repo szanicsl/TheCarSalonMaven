@@ -7,6 +7,7 @@ package com.buba.thecarsalonmaven.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
  
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -47,6 +48,24 @@ public class Colors {
             string = string +", "+ c.toString();
         }
         return string;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Colors other = (Colors) obj;
+        if (!Objects.equals(this.colors, other.colors)) {
+            return false;
+        }
+        return true;
     }
     
     

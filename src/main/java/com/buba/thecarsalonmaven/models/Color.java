@@ -1,5 +1,6 @@
 package com.buba.thecarsalonmaven.models;
 
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -24,6 +25,24 @@ public class Color {
     public Color() {
         this.color = "";
         this.cost = 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Color other = (Color) obj;
+        if (!Objects.equals(this.color, other.color)) {
+            return false;
+        }
+        return true;
     }
 
     /**

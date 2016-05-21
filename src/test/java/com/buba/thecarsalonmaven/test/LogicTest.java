@@ -16,6 +16,8 @@
  */
 package com.buba.thecarsalonmaven.test;
 
+import com.buba.thecarsalonmaven.handlers.OrderHandler;
+import com.buba.thecarsalonmaven.logic.LocalDateAdapter;
 import com.buba.thecarsalonmaven.logic.Logic;
 import com.buba.thecarsalonmaven.models.Color;
 import com.buba.thecarsalonmaven.models.Colors;
@@ -25,12 +27,16 @@ import com.buba.thecarsalonmaven.models.MotorSizes;
 import com.buba.thecarsalonmaven.models.MotorType;
 import com.buba.thecarsalonmaven.models.MotorTypes;
 import com.buba.thecarsalonmaven.models.Order;
+import com.buba.thecarsalonmaven.models.Orders;
 import com.buba.thecarsalonmaven.models.Part;
 import com.buba.thecarsalonmaven.models.Parts;
 import com.buba.thecarsalonmaven.models.User;
+import com.buba.thecarsalonmaven.xml.FileCreator;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
+import javafx.collections.ObservableList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,11 +55,13 @@ public class LogicTest {
     private MotorSizes motorSizes = new MotorSizes();
     private MotorTypes motorTypes = new MotorTypes();
     private ConfCar confCar;
-    private Part partA,partB,partC;
+    private Part partA, partB, partC;
     private List<Part> partList = new ArrayList<Part>();
     private Order orderA;
     private Order orderB;
     private Parts parts;
+    private OrderHandler handler = new OrderHandler();
+    FileCreator fCreator = new FileCreator();
 
     public LogicTest() {
         colors.getColors().add(new Color("szín név", 500));
@@ -81,21 +89,44 @@ public class LogicTest {
         assertEquals(true, logic.usable(confCar, partC));
         assertEquals(false, logic.usable(confCar, partA));
     }
-    
+
     @Test
-    public void testRemovable(){
+    public void testRemovable() {
         assertEquals(true, logic.removable(orderA));
         assertEquals(false, logic.removable(orderB));
     }
-    
+
     @Test
-    public void testRemoveOrder(){
+    public void testRemoveOrder() {
         List<Order> orderListA = new ArrayList<Order>();
         List<Order> orderListB = new ArrayList<Order>();
+        List<Order> savedList = new ArrayList<Order>();
+        savedList.addAll(logic.getOrdersList());
         orderListA.add(orderA);
         orderListA.add(orderB);
         orderListB.add(orderB);
         assertEquals(orderListB, logic.removeOrder(orderListA, orderA));
+        logic.actualizeOrders(savedList);
+    }
+    
+    @Test
+    public void testGetOrdersList() throws Exception {
+        partList.add(partA);
+        partList.add(partB);
+        Parts parts = new Parts();
+        parts.getParts().addAll(partList);
+        List<Order> savedList = new ArrayList<Order>();
+        List<Order> orderList = new ArrayList<Order>();
+        savedList.addAll(logic.getOrdersList());
+        orderList.addAll(logic.makeOrder(confCar, motorSizes.getMotorSizes().get(0)
+                , motorTypes.getMotorTypes().get(0)
+                , colors.getColors().get(0)
+                , 20000
+                , partList));
+        logic.actualizeOrders(savedList);
+        orderList.clear();
+        orderList.addAll(logic.getOrdersList());
+        assertEquals(savedList, orderList);
     }
 
 }

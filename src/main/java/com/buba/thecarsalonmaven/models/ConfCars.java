@@ -2,6 +2,7 @@ package com.buba.thecarsalonmaven.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,4 +51,24 @@ public class ConfCars {
     public ObservableList<ConfCar> getOConfCars() {
         return oConfCars;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ConfCars other = (ConfCars) obj;
+        if (!Objects.equals(this.confCars, other.confCars)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

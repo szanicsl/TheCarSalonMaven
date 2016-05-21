@@ -1,5 +1,6 @@
 package com.buba.thecarsalonmaven.models;
 
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -86,4 +87,30 @@ public class Part {
     public void setCost(String cost) {
         this.pcost = cost;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Part other = (Part) obj;
+        if (!Objects.equals(this.pname, other.pname)) {
+            return false;
+        }
+        if (!Objects.equals(this.plevel, other.plevel)) {
+            return false;
+        }
+        if (!Objects.equals(this.pcost, other.pcost)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

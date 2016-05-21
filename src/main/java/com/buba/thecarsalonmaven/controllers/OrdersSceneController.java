@@ -89,7 +89,7 @@ public class OrdersSceneController {
             orderList.clear();
         }
 
-        Logic.orders.getOrderList().stream().filter((o) -> (o.getUser().equals(MainApp.onlineUser.get()))).forEach((o) -> {
+        logic.getOrders().getOrderList().stream().filter((o) -> (o.getUser().equals(MainApp.onlineUser.get()))).forEach((o) -> {
             System.out.println("Online: "+MainApp.onlineUser.get()+", User: "+o.getUser());
             orderList.add(o);
         });

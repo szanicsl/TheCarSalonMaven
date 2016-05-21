@@ -1,5 +1,6 @@
 package com.buba.thecarsalonmaven.models;
 
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -73,6 +74,28 @@ public class MotorSize {
     public String toString() {
         return size;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MotorSize other = (MotorSize) obj;
+        if (this.cost != other.cost) {
+            return false;
+        }
+        if (!Objects.equals(this.size, other.size)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     
 }

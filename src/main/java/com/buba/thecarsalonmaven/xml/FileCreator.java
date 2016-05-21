@@ -16,9 +16,21 @@
  */
 package com.buba.thecarsalonmaven.xml;
 
+import com.buba.thecarsalonmaven.models.Color;
+import com.buba.thecarsalonmaven.models.Colors;
+import com.buba.thecarsalonmaven.models.ConfCar;
+import com.buba.thecarsalonmaven.models.MotorSize;
+import com.buba.thecarsalonmaven.models.MotorSizes;
+import com.buba.thecarsalonmaven.models.MotorType;
+import com.buba.thecarsalonmaven.models.MotorTypes;
+import com.buba.thecarsalonmaven.models.Order;
+import com.buba.thecarsalonmaven.models.Orders;
+import com.buba.thecarsalonmaven.models.Part;
+import com.buba.thecarsalonmaven.models.Parts;
 import com.buba.thecarsalonmaven.models.User;
 import com.buba.thecarsalonmaven.models.Users;
 import java.io.File;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -48,6 +60,7 @@ public class FileCreator {
     }
 
     private Users users = new Users();
+    private Orders orders = new Orders();
 
     /**
      * Létrahozza az adatbázis számára szükséges mappát a home mappán belül, majd létrehozza benne a szükséges xml állományokat, amennyiben nem léteznének.
@@ -86,6 +99,25 @@ public class FileCreator {
                         users.getUsers().add(new User("default", "default"));
 
                         w.getJaxbMarshaller().marshal(users, new File(path+"users.xml"));
+                    } catch (JAXBException ex) {
+                        Logger.getLogger(FileCreator.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }else if(file.equals(new File(path+"orders.xml"))){
+                    try {
+                        WriteXMLFile w = new WriteXMLFile();
+                        w.init(1);
+                        Colors colors = new Colors();
+                        colors.getColors().add(new Color("teszt", 0));
+                        MotorSizes motorSizes = new MotorSizes();
+                        motorSizes.getMotorSizes().add(new MotorSize("teszt", 0));
+                        MotorTypes motorTypes = new MotorTypes();
+                        motorTypes.getMotorTypes().add(new MotorType("teszt", motorSizes));
+                        Parts parts = new Parts();
+                        Part part = new Part("teszt", "teszt", "teszt");
+                        parts.getParts().add(part);
+                        orders.getOrderList().add(new Order(new ConfCar("teszt", 0, colors,motorTypes, 0), parts, 0, "", LocalDate.now()));
+
+                        w.getJaxbMarshaller().marshal(orders, new File(path+"orders.xml"));
                     } catch (JAXBException ex) {
                         Logger.getLogger(FileCreator.class.getName()).log(Level.SEVERE, null, ex);
                     }

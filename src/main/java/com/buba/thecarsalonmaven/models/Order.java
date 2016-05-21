@@ -2,6 +2,7 @@ package com.buba.thecarsalonmaven.models;
 
 import com.buba.thecarsalonmaven.logic.LocalDateAdapter;
 import java.time.LocalDate;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -129,6 +130,42 @@ public class Order {
      */
     public void setOrderDate(LocalDate date) {
         this.date = date;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Order other = (Order) obj;
+        if (this.cost != other.cost) {
+            return false;
+        }
+        if (!this.user.equals(other.user)) {
+            return false;
+        }
+        if (!this.confCar.equals(other.confCar)) {
+            return false;
+        }
+        if (!Objects.equals(this.parts, other.parts)) {
+            return false;
+        }
+        if (!Objects.equals(this.date, other.date)) {
+            return false;
+        }
+        return true;
     }
     
     

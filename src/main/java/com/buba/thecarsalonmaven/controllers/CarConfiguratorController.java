@@ -12,6 +12,8 @@ import com.buba.thecarsalonmaven.models.Part;
 import com.buba.thecarsalonmaven.models.Parts;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -31,6 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CarConfiguratorController {
+
     private static final Logger logger = LoggerFactory.getLogger(CarConfiguratorController.class);
     private Logic logic = new Logic();
     private Stage stage;
@@ -39,24 +42,25 @@ public class CarConfiguratorController {
     private SAXParser parserPart;
     private SAXParserFactory sPFactoryConfCar = SAXParserFactory.newInstance();
     private SAXParser parserConfCar;
-    
+
     private ObservableList<Part> addedExtraList = FXCollections.observableArrayList();
-    private ObservableList<MotorType> motorTypesList = FXCollections.observableArrayList();  
-    private ObservableList<Color> colorsList = FXCollections.observableArrayList();   
+    private ObservableList<MotorType> motorTypesList = FXCollections.observableArrayList();
+    private ObservableList<Color> colorsList = FXCollections.observableArrayList();
     private ObservableList<MotorSize> motorSizeList = FXCollections.observableArrayList();
     private ObservableList<Part> oParts = FXCollections.observableArrayList();
-    
+
     private PartHandler handlerPart = new PartHandler();
     private ConfCarHandler handlerConfCar = new ConfCarHandler();
-    
+
     private Parts parts = new Parts();
     private ConfCars confCars = new ConfCars();
-    
+
     private ConfCar confCar = new ConfCar();
     private Color color = new Color();
     private MotorSize motorSize = new MotorSize();
     private MotorType motorType = new MotorType();
-    
+    private List<Part> partsList = new ArrayList<Part>();
+
     public Stage getStage() {
         return stage;
     }
@@ -100,9 +104,9 @@ public class CarConfiguratorController {
 
     @FXML
     void handleAddButton(ActionEvent event) {
-        if(extraListView.getItems().contains(extraChooser.getSelectionModel().getSelectedItem())){
+        if (extraListView.getItems().contains(extraChooser.getSelectionModel().getSelectedItem())) {
             logger.info("Már tartalmazza a lista az extrát.");
-        }else if(extraChooser.getSelectionModel().getSelectedItem() != null){
+        } else if (extraChooser.getSelectionModel().getSelectedItem() != null) {
             addedExtraList.add(extraChooser.getSelectionModel().getSelectedItem());
             extraListView.setItems(addedExtraList);
             costLabel.setText(String.valueOf(logic.getCost(confCar, color, motorSize, addedExtraList.subList(0, addedExtraList.size()))));
@@ -113,25 +117,27 @@ public class CarConfiguratorController {
     void handleCancelButton(ActionEvent event) {
         stage.close();
     }
-    
+
     @FXML
     void handleOrderButton(ActionEvent event) {
-        if(typeChooser.getSelectionModel().getSelectedItem()!=null
-                && motorTypeChooser.getSelectionModel().getSelectedItem()!=null
-                && motorSizeChooser.getSelectionModel().getSelectedItem()!=null
-                && colorChooser.getSelectionModel().getSelectedItem()!=null){
+        if (typeChooser.getSelectionModel().getSelectedItem() != null
+                && motorTypeChooser.getSelectionModel().getSelectedItem() != null
+                && motorSizeChooser.getSelectionModel().getSelectedItem() != null
+                && colorChooser.getSelectionModel().getSelectedItem() != null) {
             
-            
-                logic.makeOrder(typeChooser.getSelectionModel().getSelectedItem()
-                        ,motorSizeChooser.getSelectionModel().getSelectedItem()
-                        ,motorTypeChooser.getSelectionModel().getSelectedItem()
-                        ,colorChooser.getSelectionModel().getSelectedItem()
-                        ,Integer.parseInt(costLabel.getText()),addedExtraList);
-                
-                logger.info("Rendelés történt.");
-            
-            
-        }else{
+            partsList.clear();
+            partsList.addAll(addedExtraList);
+
+            logic.makeOrder(typeChooser.getSelectionModel().getSelectedItem()
+                    , motorSizeChooser.getSelectionModel().getSelectedItem()
+                    , motorTypeChooser.getSelectionModel().getSelectedItem()
+                    , colorChooser.getSelectionModel().getSelectedItem()
+                    , Integer.parseInt(costLabel.getText())
+                    , partsList);
+
+            logger.info("Rendelés történt.");
+
+        } else {
             logger.warn("Sikertelen rendelés. Nem lett választva minden listából elem.");
         }
     }
@@ -146,24 +152,24 @@ public class CarConfiguratorController {
     }
 
     @FXML
-    private void initialize() throws SAXException, IOException, ParserConfigurationException,NullPointerException {  
+    private void initialize() throws SAXException, IOException, ParserConfigurationException, NullPointerException {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream isConfCar = classloader.getResourceAsStream("xml/confcars.xml");
         InputStream isParts = classloader.getResourceAsStream("xml/parts.xml");
-        
+
         parserPart = sPFactoryPart.newSAXParser();
         parserPart.parse(isParts, handlerPart);
 
         parserConfCar = sPFactoryConfCar.newSAXParser();
         parserConfCar.parse(isConfCar, handlerConfCar);
-        
-        if(confCars.getConfCars().isEmpty()){
+
+        if (confCars.getConfCars().isEmpty()) {
             confCars.setConfCars(handlerConfCar.getConfCarList());
         }
 
         typeChooser.setItems(confCars.getOConfCars());
-        
-        typeChooser.valueProperty().addListener(new ChangeListener<ConfCar>(){
+
+        typeChooser.valueProperty().addListener(new ChangeListener<ConfCar>() {
             @Override
             public void changed(ObservableValue<? extends ConfCar> observable, ConfCar oldValue, ConfCar newValue) {
                 oParts.clear();
@@ -171,16 +177,16 @@ public class CarConfiguratorController {
                 addedExtraList.clear();
                 color = new Color();
                 motorSize = new MotorSize();
-                
+
                 motorSizeChooser.getSelectionModel().clearSelection();
                 colorChooser.getSelectionModel().clearSelection();
                 motorTypeChooser.getSelectionModel().clearSelection();
 
                 confCar = typeChooser.getSelectionModel().getSelectedItem();
-                 
+
                 motorTypesList.setAll(confCar.getMotorTypes().getMotorTypes());
                 motorTypeChooser.setItems(motorTypesList);
-                
+
                 colorsList.setAll(confCar.getColors().getColors());
                 colorChooser.setItems(colorsList);
                 costLabel.setText(String.valueOf(logic.getCost(confCar, color, motorSize, addedExtraList.subList(0, addedExtraList.size()))));
@@ -191,43 +197,43 @@ public class CarConfiguratorController {
                 extraChooser.setItems(oParts);
             }
         });
-        
-        motorTypeChooser.valueProperty().addListener(new ChangeListener<MotorType>(){
+
+        motorTypeChooser.valueProperty().addListener(new ChangeListener<MotorType>() {
             @Override
             public void changed(ObservableValue<? extends MotorType> observable, MotorType oldValue, MotorType newValue) {
                 motorType = motorTypeChooser.getSelectionModel().getSelectedItem();;
-                if(motorType == null){
+                if (motorType == null) {
                     motorType = new MotorType();
                 }
                 motorSizeList.setAll(motorType.getMotorSizes().getMotorSizes());
                 motorSizeChooser.setItems(motorSizeList);
-                
+
                 costLabel.setText(String.valueOf(logic.getCost(confCar, color, motorSize, addedExtraList.subList(0, addedExtraList.size()))));
-                
+
             }
         });
-        
-        colorChooser.valueProperty().addListener(new ChangeListener<Color>(){
+
+        colorChooser.valueProperty().addListener(new ChangeListener<Color>() {
             @Override
             public void changed(ObservableValue<? extends Color> observable, Color oldValue, Color newValue) {
                 color = colorChooser.getSelectionModel().getSelectedItem();
-                if(color == null){
+                if (color == null) {
                     color = new Color();
                 }
                 costLabel.setText(String.valueOf(logic.getCost(confCar, color, motorSize, addedExtraList.subList(0, addedExtraList.size()))));
             }
         });
-        
-        motorSizeChooser.valueProperty().addListener(new ChangeListener<MotorSize>(){
+
+        motorSizeChooser.valueProperty().addListener(new ChangeListener<MotorSize>() {
             @Override
             public void changed(ObservableValue<? extends MotorSize> observable, MotorSize oldValue, MotorSize newValue) {
                 motorSize = motorSizeChooser.getSelectionModel().getSelectedItem();
-                if(motorSize == null){
+                if (motorSize == null) {
                     motorSize = new MotorSize();
                 }
                 costLabel.setText(String.valueOf(logic.getCost(confCar, color, motorSize, addedExtraList.subList(0, addedExtraList.size()))));
             }
         });
-        
+
     }
 }
