@@ -2,10 +2,10 @@
 
 ### Program leírása
 
-*Ez egy autó összerakó, nézegető, rendeléseket leadó program.
-Készítette: Szanics Levente
-Készült: 2015/16 2. félév
-Beadásra kerül: Programozási környezetek és Programozási technológiák tárgyból.*
+*Ez egy autó összerakó, nézegető, rendeléseket leadó program.*
+*Készítette: Szanics Levente*
+*Készült: 2015/16 2. félév*
+*Beadásra kerül: Programozási környezetek és Programozási technológiák tárgyból.*
 
 ### Rendszerkövetelmények
 
