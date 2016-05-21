@@ -17,7 +17,6 @@
 package com.buba.thecarsalonmaven.test;
 
 import com.buba.thecarsalonmaven.handlers.OrderHandler;
-import com.buba.thecarsalonmaven.logic.LocalDateAdapter;
 import com.buba.thecarsalonmaven.logic.Logic;
 import com.buba.thecarsalonmaven.models.Color;
 import com.buba.thecarsalonmaven.models.Colors;
@@ -27,7 +26,6 @@ import com.buba.thecarsalonmaven.models.MotorSizes;
 import com.buba.thecarsalonmaven.models.MotorType;
 import com.buba.thecarsalonmaven.models.MotorTypes;
 import com.buba.thecarsalonmaven.models.Order;
-import com.buba.thecarsalonmaven.models.Orders;
 import com.buba.thecarsalonmaven.models.Part;
 import com.buba.thecarsalonmaven.models.Parts;
 import com.buba.thecarsalonmaven.models.User;
@@ -35,12 +33,6 @@ import com.buba.thecarsalonmaven.xml.FileCreator;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Semaphore;
-import javafx.collections.ObservableList;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -61,8 +53,10 @@ public class LogicTest {
     private Order orderB;
     private Parts parts;
     private OrderHandler handler = new OrderHandler();
+    private FileCreator fileCreator;
 
     public LogicTest() {
+        fileCreator = new FileCreator();
         colors.getColors().add(new Color("szín név", 500));
         motorSizes.getMotorSizes().add(new MotorSize("1.5", 20000));
         motorTypes.getMotorTypes().add(new MotorType("dizel", motorSizes));
@@ -97,7 +91,6 @@ public class LogicTest {
 
     @Test
     public void testRemoveOrder() {
-        FileCreator fCreator = new FileCreator();
         List<Order> orderListA = new ArrayList<Order>();
         List<Order> orderListB = new ArrayList<Order>();
         List<Order> savedList = new ArrayList<Order>();
@@ -111,8 +104,6 @@ public class LogicTest {
 
     @Test
     public void testGetOrdersList() throws Exception {
-
-        FileCreator fCreator = new FileCreator();
         partList.add(partA);
         partList.add(partB);
         Parts parts = new Parts();
@@ -141,8 +132,19 @@ public class LogicTest {
     
     @Test
     public void testLogin(){
-        FileCreator fCreator = new FileCreator();
         assertEquals(true,logic.login("default", "default"));
         assertEquals(false, logic.login("a", "a"));
+    }
+    
+    @Test
+    public void testValidUserName(){
+        assertEquals(true, logic.userNameValidate("aaa"));
+        assertEquals(false, logic.userNameValidate("aa"));
+    }
+    
+    @Test
+    public void testValidPassword(){
+        assertEquals(true, logic.passwordValidate("aaaa"));
+        assertEquals(false, logic.passwordValidate("aaa"));
     }
 }

@@ -1,3 +1,4 @@
+// CHECKSTYLE:OFF
 package com.buba.thecarsalonmaven.controllers;
 
 import javafx.fxml.FXML;

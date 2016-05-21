@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
-import javafx.collections.ObservableList;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -36,27 +35,27 @@ import org.xml.sax.SAXException;
  */
 public class Logic {
 
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Logic.class);
-    private String path = System.getProperty("user.home") + "/.projectdatabase/";
-    /**
-     * Egy {@link Orders} típusú objektum, amelyben letároljuk a {@link Logic}
-     * osztály metódusai által előállított rendelések listáját.
-     */
-    public Orders orders = new Orders();
-
-    public Orders getOrders() {
-        return orders;
-    }
-
-    private Users users = new Users();
-
-    private OrderHandler orderHandler = new OrderHandler();
-    private UserHandler userHandler = new UserHandler();
-
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Logic.class); 
+    
     private SAXParserFactory sPFactory = SAXParserFactory.newInstance();
     private SAXParser parser;
     
+    private String path = System.getProperty("user.home") + "/.projectdatabase/";
+
+    private Orders orders = new Orders();
+    private Users users = new Users();
+    private OrderHandler orderHandler = new OrderHandler();
+    private UserHandler userHandler = new UserHandler();
+    
     private boolean contains = false;
+
+    /**
+     *
+     * @return A {@link Logic} osztály metódusai által előállított rendelések listája.
+     */
+    public Orders getOrders() {
+        return orders;
+    }
 
     /**
      * A rendelésbe foglalt termék/termékek összértékét határozza meg.
@@ -75,10 +74,20 @@ public class Logic {
         return confCar.getCost() + color.getCost() + motorSize.getCost() + partList.stream().mapToInt(p -> Integer.parseInt(p.getPcost())).sum();
     }
 
+    /**
+     * Megnézi, hogy a felhasználónév minimum 3 karakter hosszú-e.
+     * @param userName A felhasználónév.
+     * @return Visszatérési érték {@code true}, ha legalább 3 karakter hosszú a {@code userName}, egyébként {@code false}.
+     */
     public boolean userNameValidate(String userName) {
         return userName.length() >= 3;
     }
 
+    /**
+     * Megnézi, hogy a jelszó minimum 4 karakter hosszú-e.
+     * @param password A jelszó.
+     * @return Visszatérési érték {@code true}, ha legalább 4 karakter hosszú a {@code password}, egyébként {@code false}.
+     */
     public boolean passwordValidate(String password) {
         return password.length() >= 4;
     }
@@ -133,7 +142,6 @@ public class Logic {
             w.getJaxbMarshaller().marshal(orders, new File(path + "orders.xml"));
             logger.info("orders.xml sikeresen módosítva. Törlés történt.");
         } catch (JAXBException ex) {
-            ex.printStackTrace();
             logger.error(ex.getClass().getName() + ": orders.xml létrehozási/módosítási hiba.");
         }
         return orderList;
@@ -150,6 +158,7 @@ public class Logic {
      * @param color A rendelt autó színe.
      * @param cost A rendelt autó ára.
      * @param partList A rendelt autóba rakott extrák listája.
+     * @return Visszatér azzal listával, amelyhez már hozzáadtuk a rendelést.
      */
     public List<Order> makeOrder(ConfCar confCar, MotorSize motorSize, MotorType motorType, Color color, int cost, List<Part> partList) {
         MotorSizes motorSizes = new MotorSizes();
@@ -176,12 +185,16 @@ public class Logic {
             logger.info("orders.xml sikeresen módosítva. Rendelés történt.");
             return orders.getOrderList();
         } catch (JAXBException ex) {
-            ex.printStackTrace();
             logger.error(ex.getClass().getName() + ": orders.xml létrehozási/módosítási hiba.");
             return null;
         }
     }
 
+    /**
+     * A orders.xml fájlban tárolt {@link Order} objektumok listáját felülírja a paraméterül kapott listával.
+     * @param ordersList A rendelések listája.
+     * @return Aktualizált {@link Order} lista.
+     */
     public List<Order> actualizeOrders(List<Order> ordersList) {
         try {
             WriteXMLFile w = new WriteXMLFile();
@@ -201,6 +214,8 @@ public class Logic {
      * Lekéri az orders.xml-ből a rendeléseket, feltölti a
      * {@code orderHandler}-ben található listát velük, majd átadja azt az
      * {@link Orders} típusú statikus {@link orders} tagnak.
+     *
+     * @return Az orders.xml-ben található rendelések listája.
      */
     public List<Order> getOrdersList() {
         try {
@@ -227,6 +242,10 @@ public class Logic {
         }
     }
 
+    /**
+     *
+     * @return A users.xml-ben található felhasználók listája.
+     */
     public List<User> getUsersList() {
         try {
             parser = sPFactory.newSAXParser();
@@ -252,6 +271,12 @@ public class Logic {
         }
     }
 
+    /**
+     * Regisztrálja a felhasználót a users.xml fájlban.
+     * @param userName A felhasználónév.
+     * @param password A jelszó.
+     * @return Visszaadja a regisztrált felhasználót tartalmazó {@link User} listát.
+     */
     public List<User> register(String userName, String password) {
 
         getUsersList();
@@ -271,7 +296,12 @@ public class Logic {
 
         return users.getUsers();
     }
-    
+
+    /**
+     * A users.xml fájlban tárolt {@link User} objektumok listáját felülírja a paraméterül kapott listával.
+     * @param userList A felhasználó lista.
+     * @return Aktualizált {@link User} lista.
+     */
     public List<User> actualizeUsers(List<User> userList) {
         try {
             WriteXMLFile w = new WriteXMLFile();
@@ -284,21 +314,26 @@ public class Logic {
             logger.error(ex.getClass().getName() + ": users.xml létrehozási/módosítási hiba.");
             return null;
         }
-
         return users.getUsers();
     }
 
-    public boolean login(String userName, String password){
+    /**
+     * Amennyiben a felhasználónév és a jelszó egyezik egy, a felhasználók listájában szereplő {@link User} objektuméval, akkor igazzal tér vissza, tehát a belépő felhasználó a {@code userName} nevű lesz.
+     * @param userName A felhasználónév.
+     * @param password A jelszó.
+     * @return Ha a felhasználónév és a jelszó egyezik egy, a felhasználók listájában szereplő {@link User} objektuméval, akkor {@code true}, egyébként {@code false}.
+     */
+    public boolean login(String userName, String password) {
         getUsersList();
         users.getUsers().stream().forEach((u) -> {
             if (u.getUserName().equals(userName) && u.getPassword().equals(password)) {
                 contains = true;
             }
         });
-        if(contains){
+        if (contains) {
             contains = false;
             return !contains; //true
-        }else{
+        } else {
             return contains; //false
         }
     }

@@ -1,12 +1,11 @@
+// CHECKSTYLE:OFF
 package com.buba.thecarsalonmaven.controllers;
 
 import com.buba.thecarsalonmaven.MainApp;
 import com.buba.thecarsalonmaven.handlers.UserHandler;
 import static com.buba.thecarsalonmaven.MainApp.carChooser;
 import com.buba.thecarsalonmaven.logic.Logic;
-import com.buba.thecarsalonmaven.models.User;
 import com.buba.thecarsalonmaven.models.Users;
-import com.buba.thecarsalonmaven.xml.WriteXMLFile;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,8 +16,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.io.File;
 import java.io.IOException;
-import java.rmi.activation.Activatable;
-import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;

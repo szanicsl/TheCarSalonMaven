@@ -1,3 +1,4 @@
+// CHECKSTYLE:OFF
 package com.buba.thecarsalonmaven;
 
 import com.buba.thecarsalonmaven.controllers.CarChooserController;
